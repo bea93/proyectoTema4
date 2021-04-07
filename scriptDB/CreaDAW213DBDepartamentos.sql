@@ -1,13 +1,4 @@
-/* Creación de la Base de Datos */
-    CREATE DATABASE if NOT EXISTS DAW213DBDepartamentos;
-    
-/* Creación del usuario */
-    CREATE USER IF NOT EXISTS 'usuarioDAW213DBDepartamentos'@'%' identified BY 'paso';
-
-/* Dar permisos al usuario creado */
-    GRANT ALL PRIVILEGES ON DAW213DBDepartamentos.* TO 'usuarioDAW213DBDepartamentos'@'%'; 
-
-    USE DAW213DBDepartamentos;
+USE dbs272025;
 
 /* Creación de la table departamento */
     CREATE TABLE Departamento (

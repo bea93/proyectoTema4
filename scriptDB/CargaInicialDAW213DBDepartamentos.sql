@@ -1,5 +1,5 @@
 /* Base de datos a usar */
-    USE DAW213DBDepartamentos;
+    USE dbs272025;
 
 /* Introduccion de datos dentro de la tabla creada */
     INSERT INTO Departamento(CodDepartamento,DescDepartamento,FechaBaja, VolumenNegocio) VALUES
