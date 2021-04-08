@@ -50,22 +50,7 @@
                 echo "</tr>";
             }
             echo "</table>";
-            
-        //Captura de la excepción
-        } catch (PDOException $mensajeError) { 
-            //Mensaje de salida
-            echo "Error " . $mensajeError->getMessage() . "<br>"; 
-            //Código del error
-            echo "Codigo del error " . $mensajeError->getCode() . "<br>"; 
-        } finally {
-            //Cerramos la conexion
-            unset($miBD); 
-        }
-        
-        try {
-            //Objeto PDO con los datos de conexión
-            $miBD = new PDO(HOST,USER,PASS);
-            $miBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+               
             //Consulta SQL
             $consultaPreparada2 = 'SELECT * FROM Departamento';
             $resultadoSQL2 = $miBD->prepare($consultaPreparada2);

@@ -11,7 +11,7 @@
 	<body>
 		
 		<?php
-			highlight_file("../codigoPHP/ejercicio4.php");
+			highlight_file("../codigoPHP/ejercicio04.php");
 		?>
 	</body>
 </html>

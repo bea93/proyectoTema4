@@ -84,8 +84,9 @@ and open the template in the editor.
                             <?php
                             echo "<td>" . $registro->CodDepartamento . "</td>";
                             echo "<td>" . $registro->DescDepartamento . "</td>";
-                            echo "<td>$registro->VolumenNegocio</td>";                        }
-                        ?>
+                            echo "<td>$registro->VolumenNegocio</td>";                        
+                            
+                    }?>
                     </tr>
                 </tbody>
             </table>

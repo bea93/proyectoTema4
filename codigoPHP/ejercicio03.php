@@ -10,6 +10,9 @@
             .error{
                 color: red;
             }
+            .obligatorio{
+                background-color: lightgray;
+            }
         </style>
     </head>
     <body>  
@@ -154,9 +157,9 @@
                 <fieldset>
                     <legend>Creación de departamentos</legend>
                     <br>
-                    <div class="obligatorio">
-                        Código Departamento:
-                        <input type="text" name="CodDepartamento"
+                    <div>
+                        <label for="codigo">Código Departamento:</label>
+                        <input type="text" name="CodDepartamento" id="codigo" placeholder="EN MAYÚSCULAS" class="obligatorio"
                                value="<?php if($aErrores['CodDepartamento'] == NULL && isset($_POST['CodDepartamento'])){ echo $_POST['CodDepartamento'];} ?>"><br> <!--//Si el valor es bueno, lo escribe en el campo-->
                         <?php if ($aErrores['CodDepartamento'] != NULL) { ?>
                         <div class="error">
@@ -165,9 +168,9 @@
                     <?php } ?>                
                     </div>
                     <br>
-                    <div class="obligatorio">
-                        Descripción Departamento: 
-                        <input type="text" name="DescDepartamento"
+                    <div>
+                        <label for="descripcion">Descripción Departamento: </label>
+                        <input type="text" name="DescDepartamento" id="descripcion" class="obligatorio"
                                value="<?php if($aErrores['DescDepartamento'] == NULL && isset($_POST['DescDepartamento'])){ echo $_POST['DescDepartamento'];} ?>"><br> <!--//Si el valor es bueno, lo escribe en el campo-->
                         <?php if ($aErrores['DescDepartamento'] != NULL) { ?>
                         <div class="error">
@@ -175,10 +178,10 @@
                         </div>   
                     <?php } ?>                
                     </div>
-                    <br/>
-                    <div class="obligatorio">
-                        Volumen negocio: 
-                        <input type="text" name="VolumenNegocio"
+                    <br>
+                    <div>
+                        <label for="volumen">Volumen negocio: </label>
+                        <input type="text" name="VolumenNegocio"id="volumen" class="obligatorio"
                                value="<?php if($aErrores['VolumenNegocio'] == NULL && isset($_POST['VolumenNegocio'])){ echo $_POST['VolumenNegocio'];} ?>"><br> <!--//Si el valor es bueno, lo escribe en el campo-->
                         <?php if ($aErrores['VolumenNegocio'] != NULL) { ?>
                         <div class="error">
@@ -186,8 +189,7 @@
                         </div>   
                     <?php } ?>                
                     </div>
-                    <br/>
-                    <br/>
+                    <br>
                     <div>
                         <input type="submit" name="enviar" value="Enviar">
                     </div>

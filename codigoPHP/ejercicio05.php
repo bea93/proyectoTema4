@@ -18,21 +18,14 @@
           @description: Pagina web que añade tres registros a nuestra tabla Departamento utilizando tres instrucciones insert y una transacción, de tal forma que se añadan los tres registros o no se añada ninguno
          */
         
-        //Importa la librería de validación
-        require_once '../core/210322ValidacionFormularios.php';
         //Fichero de configuración de la BBDD
         require_once '../config/confDB.php';
 
         try {
             //Objeto PDO con los datos de conexión
             $miBD = new PDO(HOST,USER,PASS);
-            $miBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $mensajeError) {
-            echo "Error " . $mensajeError->getMessage() . "<br>"; //mensaje de salida
-            echo "Código del error " . $mensajeError->getCode() . "<br>"; //mensaje de salida/codigo del error
-        } 
-
-        try {
+            $miBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+            
             //Inicializa la transacción
             $miBD->beginTransaction();
             
@@ -43,7 +36,9 @@
             
             $insert1->execute(); 
             $insert2->execute(); 
-            $insert3->execute(); 
+            $insert3->execute();
+            
+            $miBD -> commit();
 
             //Mensaje de salida
             echo "<h3 style='color: green'>Las instrucciones se han realizado correctamente</h3>" . "<br>";
