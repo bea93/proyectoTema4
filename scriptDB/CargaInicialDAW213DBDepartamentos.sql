@@ -1,7 +1,7 @@
 /* Base de datos a usar */
     USE dbs272025;
 
-/* Introduccion de datos dentro de la tabla creada */
+/* Introducción de datos dentro de la tabla creada */
     INSERT INTO Departamento(CodDepartamento,DescDepartamento,FechaBaja, VolumenNegocio) VALUES
         ('INF', 'Departamento de informatica',1574772123, 50),
         ('VEN', 'Departamento de ventas',1574772123, 800000),

@@ -15,6 +15,6 @@ define("USER",'usuarioDAW213DBDepartamentos');
 define("PASS",'P@ssw0rd');*/
 
 //ENTORNO EXPLOTACIÓN 1AND1
-define("DNS",'mysql:host=db5000278681.hosting-data.io;dbname=dbs272025');
+define("HOST",'mysql:host=db5000278681.hosting-data.io;dbname=dbs272025');
 define("USER",'dbu63905');
 define("PASS",'Covid1234$');

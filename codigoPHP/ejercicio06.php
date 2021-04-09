@@ -34,7 +34,7 @@ and open the template in the editor.
             //Crea la consulta de inserción
             $sqlInsert ='INSERT INTO Departamento (CodDepartamento,DescDepartamento,VolumenNegocio) values (:codigo,:descripcion,:volumen)';
             //Crea un array con los datos que se van a insertar
-            $aParametros = [
+            $aDepNuevos = [
                 array(
                     "GGG",
                     "Departamento de jejes",
@@ -50,10 +50,11 @@ and open the template in the editor.
             
             $miBD->beginTransaction();
             //Bucle que recorre el array y otorga los valores
-            foreach ($aParametros as $departamentos => $valor) {
-                $consultaInsert->bindParam(':codigo', $valor[0]); // Ejecutamos el primer valor del array
-                $consultaInsert->bindParam(':descripcion', $valor[1]); // Ejecutamos el tercer valor del array
-                $consultaInsert->bindParam(':volumen', $valor[2]); // Ejecutamos el cuarto valor del array
+            foreach ($aDepNuevos as $departamento => $valor) {
+                //Ejecutan los valores del arrray
+                $consultaInsert->bindParam(':codigo', $valor[0]);
+                $consultaInsert->bindParam(':descripcion', $valor[1]);
+                $consultaInsert->bindParam(':volumen', $valor[2]);
                 $consultaInsert->execute();
             }
             
@@ -78,8 +79,7 @@ and open the template in the editor.
                 <tbody>
                     <?php
                     //Al realizar el fetchObject, se pueden sacar los datos de $registro como si fuera un objeto
-                    while ($registro = $consultaSelect->fetchObject()) {
-                        ?>
+                    while ($registro = $consultaSelect->fetchObject()) {?>
                         <tr>
                             <?php
                             echo "<td>" . $registro->CodDepartamento . "</td>";
@@ -87,20 +87,24 @@ and open the template in the editor.
                             echo "<td>$registro->VolumenNegocio</td>";                        
                             
                     }?>
-                    </tr>
+                        </tr>
                 </tbody>
             </table>
             <?php
-        } catch (PDOException $mensajeError) { 
-            echo "<h3>Mensaje de ERROR</h3>";
+        } catch (PDOException $mensajeError) {
             //Mensaje de salida
-            echo "Error: " . $mensajeError->getMessage() . "<br>";
+            echo "<h3 style='color:red'>Error:</h3> ";
+            echo $mensajeError->getMessage();
             //Código del error
-            echo "Código de error: " . $mensajeError->getCode();
+            echo "<p style='color:red'>Código de error:</p> " ;
+            echo $mensajeError->getCode();
+            //Deshace los cambios en caso de que haya algún error
+            $miBD ->rollBack();
+            //Finaliza el script
+            die();
         } finally {
             //Cerramos la conexion
             unset($miBD);
-        }
-        ?>
+        }?>
     </body>
 </html>

@@ -1,8 +1,5 @@
-/* Usar la base de datos creada */
-    USE DAW213DBDepartamentos;
+/* Base de datos a usar */
+    USE dbs272025;
 
-/* Borrar base de datos */
-    DROP database DAW213DBDepartamentos;
-
-/* Borrar usuario asociado a esa base de datos */
-    DROP USER usuarioDAW213DBDepartamentos;
+/* Borrar la tabla Departamento */
+    DROP TABLE Departamento;
